@@ -11,6 +11,9 @@ let startDtk = 0;
 
 let interval;
 
+stop.style.pointerEvents = "none";
+reset.style.pointerEvents = "none";
+
 start.addEventListener("click", function () {
   interval = setInterval(function () {
     if (startDtk < 59) {
@@ -30,11 +33,14 @@ start.addEventListener("click", function () {
   }, 1000);
 
   start.style.pointerEvents = "none";
+  stop.style.pointerEvents = "visible";
+  reset.style.pointerEvents = "visible";
 });
 
 stop.addEventListener("click", function () {
   clearInterval(interval);
   start.style.pointerEvents = "visible";
+  stop.style.pointerEvents = "none";
 });
 
 reset.addEventListener("click", function () {
